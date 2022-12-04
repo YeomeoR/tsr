@@ -1,13 +1,11 @@
 <?php
 
 // ============================= 1 =======================
-//Write a function that, given an array of size n, finds the first repeating element. It
-//should return the element that repeats, and the index of its first occurrence.
+// Write a function that, given an array of size n, finds the first repeating element. It
+// should return the element that repeats, and the index of its first occurrence.
 
 function repeaterPos($array)
 {
-    // return first repeated element and index
-
     $unique = array_unique($array);
 
      foreach($array as $key => $value) {
@@ -23,13 +21,14 @@ var_dump(repeaterPos(['e','f','t','y','r','t','e','f','g','h']),
 var_dump(repeaterPos([1,2,3,4,2,3,4,1,1,5,6,7,8]),
     1, 2);
 
+
 // =============================== 2 =======================
-//Write a function that returns the number of vowels and consonants in a string (as
-//separate values).
+
+// Write a function that returns the number of vowels and consonants in a string (as
+// separate values).
 
 function vowelsAndConsonants($str)
 {
-    // return vowel count and consonant count
     $trimmed = str_replace(' ', '', $str);
     $vowels = array();
     $strArr = str_split($trimmed);
@@ -52,18 +51,17 @@ var_dump(vowelsAndConsonants('The lazy brown fox jumps over the picnic table', )
 
 
 // ================================ 3 ======================
-//Write a function that takes a string containing a sentence or (body of text) and a
-//second string containing a word and returns the number of times the word appears in
-//the string.
+// Write a function that takes a string containing a sentence or (body of text) and a
+// second string containing a word and returns the number of times the word appears in
+// the string.
 
 function matchingWordCount($str, $w)
- {
-    // return count of w in str
+{
      // normalise the strings
      $str = strtolower($str);
      $w = strtolower($w);
 
-     return 'Number of occurances of "' . $w . '" in the string is ' . substr_count($str, $w);
+     return 'Number of occurrences of "' . $w . '" in the string is ' . substr_count($str, $w);
 
 }
 
@@ -71,13 +69,15 @@ var_dump(matchingWordCount('This is the only time this sentence will be used in 
     3);
 var_dump(matchingWordCount('No way are we going to find a way to weigh up all of the options!', 'way'),
     2);
+
+
 // =============================== 4 ========================
-//Write a function that takes a number and returns the volume of a sphere with that
-//diameter.
+// write a function that takes a number and returns the volume of a sphere with that
+// diameter.
 
 function spherical($d)
 {
-    // return volume of a sphere 6V = πd3
+    // volume of a sphere -> 6V = πd3
     return (M_PI * ($d**3)) / 6;
 }
 
@@ -86,30 +86,70 @@ var_dump(spherical(21),
 var_dump(spherical(5),
     65.45);
 
-// =============================== 5 ========================
-//Write a function that accepts an integer, and returns the next 20 prime numbers
 
-//function nextTwentyPrimes($num)
-// {
-//    // return next 20 primes from $num
-//}
-//
-//var_dump(nextTwentyPrimes(23));
+// =============================== 5 ========================
+// Function to check if a number is a prime
+
+function isPrime($num)
+{
+    // 1 is not a prime
+    if ($num == 1) return false;
+
+    // 2 is the only even prime number
+    if ($num == 2) return true;
+
+    // Check if number is divisible by 2
+    if ($num % 2 == 0) return false;
+
+    // Check only odd numbers up to the sq-root of $num
+    for ($i = 3; $i <= sqrt($num); $i += 2) {
+        if ($num % $i == 0) return false;
+    }
+
+    return true;
+}
+
+// Function to find the next 20 primes after a given integer
+
+function next20Primes($num)
+{
+    // Initialize count to 0
+    $count = 0;
+
+    // Initialize next to the given integer
+    $next = $num;
+
+    // Loop while count is less than 20
+    while ($count < 20) {
+        // Increment the next integer
+        $next++;
+
+        // Check if prime
+        if (isPrime($next)) {
+            // Print it
+            echo $next . " ";
+
+            // Increment the count
+            $count++;
+        }
+    }
+}
+
+var_dump(next20Primes(100));
+var_dump(next20Primes(23));
+var_dump(next20Primes(4620));
 
 
 // ==================== SQL =====================
-
 // Write an SQL query to find the user “jimbob”
 
 $sql = "SELECT username FROM users WHERE username = 'jimbob'";
 
 // Write an SQL query to find all of the posts created by user “the_gary”
-
 $sqlGary = "SELECT created_by_id, post_content, date_created, post_status FROM posts INNER JOIN users ON posts.created_by_id = users.id WHERE username = 'the_gary'";
 
 // Write an SQL query to find all posts by “the_gary”, with a status of ‘published’,
 //created this year.
-
 $sqlGaryPublished = "SELECT created_by_id, post_content, year(date_created), post_status FROM posts INNER JOIN users ON posts.created_by_id = users.id WHERE username = 'the_gary' AND date_created = '2022'";
 
 // Imagine the users table has 20000 entries; how would you approach indexing it?
