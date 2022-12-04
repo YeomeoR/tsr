@@ -111,17 +111,17 @@ function isPrime($num)
 
 // Function to find the next 20 primes after a given integer
 
-function next20Primes($num)
+function nextTwentyPrimes($num)
 {
-    // Initialize count to 0
+    // Initialise count to 0
     $count = 0;
 
-    // Initialize next to the given integer
+    // Initialise next to the given integer
     $next = $num;
 
     // Loop while count is less than 20
     while ($count < 20) {
-        // Increment the next integer
+        // Increment the next int
         $next++;
 
         // Check if prime
@@ -135,9 +135,9 @@ function next20Primes($num)
     }
 }
 
-var_dump(next20Primes(100));
-var_dump(next20Primes(23));
-var_dump(next20Primes(4620));
+var_dump(nextTwentyPrimes(100));
+var_dump(nextTwentyPrimes(23));
+var_dump(nextTwentyPrimes(4620));
 
 
 // ==================== SQL =====================
