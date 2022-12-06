@@ -1,8 +1,8 @@
 @extends('layouts.master')
 {{-- login form --}}
-@section('login')
+@section('auth')
 
-    <form class="h-screen max-w-lg mt-12 flex justify-center items-center flex-col" method="post" action="">
+    <form class="h-screen max-w-lg mt-12 flex justify-center items-center flex-col" method="POST" action="/users/authenticate">
         @csrf
         <div class="flex flex-wrap -mx-3 mb-6 items-center p-48 shadow-2xl">
             <h2 class="text-xl text-blue-400 font-bold mb-12">The Student Room Login</h2>
@@ -23,6 +23,7 @@
             <button class="shadow bg-pink-500 hover:bg-pink-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 ml-8 rounded" type="submit">
                 Login
             </button>
+            <p>Not a user?<a href="/users/register"> Register </a></p>
         </div>
 
     </form>
