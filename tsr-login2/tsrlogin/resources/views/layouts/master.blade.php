@@ -13,9 +13,9 @@
 
 <div class="container">
 
-
     <div class="flex flex-col justify-center items-center">
         @yield('auth')
+        @yield('online')
     </div>
 
 

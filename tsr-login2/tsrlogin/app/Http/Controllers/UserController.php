@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function login() {
-        return view('login');
+        return view('/login');
     }
     // register user form
     public function create() {
@@ -41,14 +41,10 @@ class UserController extends Controller
         if (auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'You are now logged in');
+            return redirect('/online')->with('message', 'You are now logged in');
         }
         return back()->withErrors(['username' => 'invalid credentials'])->onlyInput('username');
     }
-
-
-
-
 
 }
 
