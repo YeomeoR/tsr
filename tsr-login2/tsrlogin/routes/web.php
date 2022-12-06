@@ -4,7 +4,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('login');
+    return view('/login');
 });
 // registration form
 Route::get('/users/register', [UserController::class, 'create']);
