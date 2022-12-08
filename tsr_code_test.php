@@ -77,7 +77,7 @@ var_dump(matchingWordCount('No way are we going to find a way to weigh up all of
 
 function spherical($d)
 {
-    // volume of a sphere -> 6V = πd3
+    // volume of a sphere -> 6V = πd3 (no units of measurement given)
     return (M_PI * ($d**3)) / 6;
 }
 
@@ -153,16 +153,16 @@ $sqlGary = "SELECT created_by_id, post_content, date_created, post_status
 
 // Write an SQL query to find all posts by “the_gary”, with a status of ‘published’,
 //created this year.
-$sqlGaryPublished = "SELECT created_by_id, post_content, year(date_created), post_status 
+$sqlGaryPublished = "SELECT created_by_id, post_content, date_created, post_status 
                         FROM posts 
                         INNER JOIN users ON posts.created_by_id = users.id 
                             WHERE username = 'the_gary' 
-                            AND date_created = '2022' 
+                            AND year(date_created) = '2022' 
                             AND post_status = 'published'";
 
 // Imagine the users table has 20000 entries; how would you approach indexing it?
-echo 'Really, you want to index based on fields you might access, so if you are showing these articles on a page you might be accessing based on an id or if an application is frequently searching based on the author then on the name. Really indexes should be constructed to optimize the db traversal for the most frequent use cases';
+echo 'Really, we want to index based on fields you might access, so if you are showing these articles on a page, we might be accessing based on an id, or if an application is frequently searching based on the author then on the name. Indexes should be constructed to optimize the db traversal for the most frequent use cases';
 
 // Why is it not recommended to index small tables of data?
-echo 'Indexing small tables may not be optimal because it can take the query optimizer longer to traverse the index searching for data than to perform a simple table scan. A small table might be really quick to access particular bits from, while traversing some unnecessary binary tree of entries might take longer';
+echo 'Indexing small tables may not be optimal because it can take the query optimizer longer to traverse the index searching for data than to perform a simple table scan. A small table might be really quick to access particular data from, while traversing some unnecessary binary tree of entries might take longer';
 

@@ -11,7 +11,7 @@ Route::get('/users/register', [UserController::class, 'create']);
 // create user
 Route::post('/users', [UserController::class, 'store']);
 // logout
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout']); // this function does not exist
 // login form
 Route::get('/login', [UserController::class, 'login']);
 // login
