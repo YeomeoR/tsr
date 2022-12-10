@@ -2,7 +2,7 @@
 
 ### functions
 
-functions tasks and SQL tasks are found in tsr_code_test.php in the root folder
+functions tasks and SQL tasks can be found in tsr_code_test.php in the root folder
 
 #### Functions
 
