@@ -9,10 +9,12 @@ function repeaterPos($array)
     $unique = array_unique($array);
 
      foreach($array as $key => $value) {
+
          if ($unique[$key] !== $value) {
              $idx = array_search($value, $array);
             return 'index: ' . $idx . ' => value: ' . $value;
          }
+
      }
 }
 
@@ -33,10 +35,12 @@ function vowelsAndConsonants($str)
     $vowels = array();
     $strArr = str_split($trimmed);
 
-    foreach($strArr as $letter) {
+    foreach($strArr as $letter)
+
         if (preg_match('/[aeiou]/i', $letter)) {
             array_push($vowels, $letter);
         }
+
     }
     // calculate num consonants
     $consonantsLength = count($strArr) - count($vowels);
