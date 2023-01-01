@@ -35,7 +35,7 @@ function vowelsAndConsonants($str)
     $vowels = array();
     $strArr = str_split($trimmed);
 
-    foreach($strArr as $letter)
+    foreach($strArr as $letter) {
 
         if (preg_match('/[aeiou]/i', $letter)) {
             array_push($vowels, $letter);
